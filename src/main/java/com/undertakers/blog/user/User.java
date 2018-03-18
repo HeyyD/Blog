@@ -2,12 +2,12 @@ package com.undertakers.blog.user;
 
 public class User {
 
-    private static int currentId;
+    private static int currentId = 0;
     private int id;
     private String username;
 
     public User(){
-        currentId++;
+
     }
 
     public User(String username){

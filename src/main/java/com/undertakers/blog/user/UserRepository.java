@@ -3,6 +3,8 @@ package com.undertakers.blog.user;
 import com.undertakers.blog.repository.BlogRepository;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.PostConstruct;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -10,23 +12,41 @@ public class UserRepository implements BlogRepository<User, Integer>{
 
     List<User> users;
 
-    @Override
-    public User saveEntity(User entity) {
-        return null;
+    @PostConstruct
+    public void init() {
+        users = new ArrayList<>();
+        users.add(new User("Admin"));
     }
 
     @Override
-    public void delete(Integer integer) {
+    public User saveEntity(User entity) {
+        users.add(entity);
+        return entity;
+    }
 
+    @Override
+    public void delete(Integer id) {
+        for(User user: users){
+            if(user.getId() == id) {
+                users.remove(user);
+                return;
+            }
+        }
+        System.out.println("Could not find user with id " + id);
     }
 
     @Override
     public Iterable<User> findAll() {
-        return null;
+        return users;
     }
 
     @Override
-    public User findOne(Integer integer) {
+    public User findOne(Integer id) {
+        for(User user: users){
+            if(user.getId() == id)
+                return user;
+        }
+        System.out.println("Could not find user with id " + id);
         return null;
     }
 }
