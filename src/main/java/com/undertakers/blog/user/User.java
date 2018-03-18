@@ -7,14 +7,13 @@ public class User {
     private String username;
 
     public User(){
-
+        this.id = currentId;
+        currentId++;
     }
 
     public User(String username){
-        this.id = currentId;
+        this();
         this.username = username;
-
-        currentId++;
     }
 
     public int getId() {
