@@ -1,5 +1,6 @@
 package com.undertakers.blog.user;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.undertakers.blog.repository.BlogRepository;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +16,8 @@ public class UserRepository implements BlogRepository<User, Integer>{
     @PostConstruct
     public void init() {
         users = new ArrayList<>();
-        users.add(new User("Admin"));
+        users.add(new User("Admin", "admin"));
+        users.add(new User("User", "user"));
     }
 
     @Override
@@ -57,5 +59,14 @@ public class UserRepository implements BlogRepository<User, Integer>{
         }
         System.out.println("Could not find user with username " + username);
         return null;
+    }
+
+    public boolean login(LoginRequest request) {
+        for(User user: users) {
+            if(user.getUsername().equals(request.getUsername()) && user.getPassword().equals(request.getPassword()))
+                return true;
+        }
+        System.out.println("Could not find user with username " + request.getUsername());
+        return false;
     }
 }

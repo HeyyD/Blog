@@ -1,7 +1,11 @@
 package com.undertakers.blog.user;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 
 @RestController
 public class UserRestController {
@@ -16,6 +20,11 @@ public class UserRestController {
     @RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE )
     public void deleteUser(@PathVariable int id){
         userRepository.delete(id);
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public boolean login(@RequestBody LoginRequest request){
+        return userRepository.login(request);
     }
 
     public User getUserById(@PathVariable int id) {
