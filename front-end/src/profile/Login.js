@@ -11,17 +11,18 @@ class Login extends Component {
   }
 
   onUsernameChange(event){
-    this.setState({"username": event.target.value});
+    this.setState({[event.target.name]: event.target.value});
   }
 
   login(event) {
-    //console.log(this.state.username);
     event.preventDefault();
 
-    let url = 'http://localhost:8080/users/' + this.state.username;
+    let url = 'http://localhost:8080/login/';
+    let data = {username : this.state.username, password : this.state.password}
 
     let init = {
-      method: 'GET',
+      method: 'POST',
+      body: JSON.stringify(data),
       headers: new Headers({
         'Content-type': 'application/json'
       })
@@ -35,9 +36,9 @@ class Login extends Component {
     return(
       <div className="Login-form">
         Username:
-        <input type="text" onChange={this.onUsernameChange}/>
+        <input name="username" type="text" onChange={this.onUsernameChange}/>
         Password:
-        <input type="text"/>
+        <input name="password" type="text" onChange={this.onUsernameChange}/>
         <button onClick={this.login}>Login</button>
       </div>
     );
