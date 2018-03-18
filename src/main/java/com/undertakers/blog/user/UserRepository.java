@@ -1,8 +1,11 @@
 package com.undertakers.blog.user;
 
 import com.undertakers.blog.repository.BlogRepository;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 
+@RestController
 public class UserRepository implements BlogRepository<User, Integer>{
 
     List<User> users;
