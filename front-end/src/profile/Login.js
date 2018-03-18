@@ -15,8 +15,20 @@ class Login extends Component {
   }
 
   login(event) {
-    console.log(this.state.username);
-    event.preventDefault()
+    //console.log(this.state.username);
+    event.preventDefault();
+
+    let url = 'http://localhost:8080/users/' + this.state.username;
+
+    let init = {
+      method: 'GET',
+      headers: new Headers({
+        'Content-type': 'application/json'
+      })
+    }
+
+    fetch(url, init).then(res => res.json())
+                    .then(result => console.log(result));
   }
 
   render() {
