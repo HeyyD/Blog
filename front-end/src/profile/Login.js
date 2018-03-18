@@ -29,7 +29,7 @@ class Login extends Component {
     }
 
     fetch(url, init).then(res => res.json())
-                    .then(result => console.log(result));
+                    .then(result => console.log('Login: ' + result));
   }
 
   render() {
