@@ -1,4 +1,5 @@
 target/
+.mvn/node/yarn/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
