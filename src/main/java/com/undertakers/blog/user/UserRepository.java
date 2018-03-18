@@ -49,4 +49,13 @@ public class UserRepository implements BlogRepository<User, Integer>{
         System.out.println("Could not find user with id " + id);
         return null;
     }
+
+    public User findOne(String username) {
+        for(User user: users) {
+            if(user.getUsername().equals(username))
+                return user;
+        }
+        System.out.println("Could not find user with username " + username);
+        return null;
+    }
 }

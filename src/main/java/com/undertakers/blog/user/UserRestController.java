@@ -18,9 +18,13 @@ public class UserRestController {
         userRepository.delete(id);
     }
 
-    @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
-    public User getUser(@PathVariable int id) {
+    public User getUserById(@PathVariable int id) {
         return userRepository.findOne(id);
+    }
+
+    @RequestMapping(value = "/users/{username}", method = RequestMethod.GET)
+    public User getUserByUsername(@PathVariable String username) {
+        return userRepository.findOne(username);
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
