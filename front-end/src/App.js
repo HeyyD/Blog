@@ -10,7 +10,9 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Blog Site</h1>
         </header>
-        <Profile/>
+        <div className="App-left-panel">
+          <Profile/>
+        </div>
       </div>
     );
   }
