@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class UserRepositoryExceptionHandler {
+public class UserNotFoundExceptionHandler {
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<ErrorInfo> handleConflict(UserNotFoundException ex) {
         ErrorInfo e;
