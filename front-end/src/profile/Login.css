@@ -1,0 +1,8 @@
+.Login-form {
+  width: 100%;
+  padding: 10px;
+}
+
+.Login-form > input {
+  margin: 5px;
+}
