@@ -34,7 +34,7 @@ public class UserRepository implements BlogRepository<User, Integer>{
                 return;
             }
         }
-        System.out.println("Could not find user with id " + id);
+        throw new UserNotFoundException(id);
     }
 
     @Override
@@ -48,8 +48,7 @@ public class UserRepository implements BlogRepository<User, Integer>{
             if(user.getId() == id)
                 return user;
         }
-        System.out.println("Could not find user with id " + id);
-        return null;
+        throw new UserNotFoundException(id);
     }
 
     public User findOne(String username) {
@@ -57,8 +56,7 @@ public class UserRepository implements BlogRepository<User, Integer>{
             if(user.getUsername().equals(username))
                 return user;
         }
-        System.out.println("Could not find user with username " + username);
-        return null;
+        throw new UserNotFoundException(username);
     }
 
     public boolean login(LoginRequest request) {

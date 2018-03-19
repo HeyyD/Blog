@@ -1,11 +1,7 @@
 package com.undertakers.blog.user;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.IOException;
 
 @RestController
 public class UserRestController {
@@ -27,13 +23,9 @@ public class UserRestController {
         return userRepository.login(request);
     }
 
+    @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
     public User getUserById(@PathVariable int id) {
         return userRepository.findOne(id);
-    }
-
-    @RequestMapping(value = "/users/{username}", method = RequestMethod.GET)
-    public User getUserByUsername(@PathVariable String username) {
-        return userRepository.findOne(username);
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
