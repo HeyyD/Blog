@@ -50,15 +50,7 @@ public class UserRepository implements BlogRepository<User, Integer>{
         }
         throw new UserNotFoundException(id);
     }
-
-    public User findOne(String username) {
-        for(User user: users) {
-            if(user.getUsername().equals(username))
-                return user;
-        }
-        throw new UserNotFoundException(username);
-    }
-
+    
     public boolean login(LoginRequest request) {
         for(User user: users) {
             if(user.getUsername().equals(request.getUsername()) && user.getPassword().equals(request.getPassword()))

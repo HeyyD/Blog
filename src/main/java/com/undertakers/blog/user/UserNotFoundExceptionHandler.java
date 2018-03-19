@@ -11,12 +11,7 @@ public class UserNotFoundExceptionHandler {
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<ErrorInfo> handleConflict(UserNotFoundException ex) {
         ErrorInfo e;
-        if(ex.getUsername() != null){
-            e = new ErrorInfo("Could not find user with username " + ex.getUsername());
-        } else {
-            e = new ErrorInfo("Could not find user with id " + ex.getId());
-        }
-
+        e = new ErrorInfo("Could not find user with id " + ex.getId());
         return new ResponseEntity<>(e, HttpStatus.NOT_FOUND);
     }
 }
