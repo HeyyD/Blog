@@ -5,8 +5,11 @@
   background: gray;
   padding-top: 50px;
   color: lightgray;
-  margin: 0;
   height: 100px;
+  margin: 0;
+}
+.App-main-feed{
+  background: #EEEEEE;
 }
 .User-profile{
   background: lightgray;
