@@ -16,7 +16,7 @@ public class PostRepository implements BlogRepository<BlogPost, Integer> {
     @PostConstruct
     private void  init() {
         this.posts = new ArrayList<>();
-        this.posts.add(new BlogPost("Title", "This is a example BlogPost", new Date()));
+        this.posts.add(new BlogPost("Title", "This is a example BlogPost"));
     }
 
     @Override
