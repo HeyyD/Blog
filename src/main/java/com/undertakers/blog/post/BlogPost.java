@@ -13,14 +13,14 @@ public class BlogPost {
 
     public BlogPost() {
         this.id = currentId;
+        this.date = new Date();
         currentId++;
     }
 
-    public BlogPost(String title, String content, Date date) {
+    public BlogPost(String title, String content) {
         this();
         this.title = title;
         this.content = content;
-        this.date = date;
     }
 
     public int getId() {
