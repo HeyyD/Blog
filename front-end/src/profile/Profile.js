@@ -29,7 +29,7 @@ class Profile extends Component {
     if(this.loggedIn){
       return(
         <div className="Profile-view">
-          <p>{this.state.username}</p>
+          <label>{this.state.username}</label>
           <button onClick={this.signOut}>Logout</button>
         </div>
       );
