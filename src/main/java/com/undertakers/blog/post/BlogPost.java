@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class BlogPost {
 
-    private int currentId = 0;
+    private static int currentId = 0;
 
     private int id;
     private String title;
