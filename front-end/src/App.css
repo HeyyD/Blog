@@ -9,7 +9,8 @@
   margin: 0;
 }
 .App-main-feed{
-  background: #EEEEEE;
+  background: #DDDDDD;
+  padding: 20px;
 }
 .User-profile{
   background: lightgray;

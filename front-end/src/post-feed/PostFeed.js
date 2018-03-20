@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Post from './Post'
 
 class PostFeed extends Component {
 
@@ -22,7 +23,7 @@ class PostFeed extends Component {
   render() {
     return(
       <div>
-        <label>PostFeed</label>
+        <Post title='title' content='content'/>
       </div>
     );
   }
