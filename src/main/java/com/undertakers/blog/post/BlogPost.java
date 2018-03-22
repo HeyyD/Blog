@@ -1,20 +1,24 @@
 package com.undertakers.blog.post;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "posts")
 public class BlogPost {
 
-    private static int currentId = 0;
-
+    @Id @GeneratedValue
+    @Column(name = "id")
     private int id;
+    @Column(name = "title")
     private String title;
+    @Column(name = "content")
     private String content;
+    @Column(name = "date")
     private Date date;
 
     public BlogPost() {
-        this.id = currentId;
         this.date = new Date();
-        currentId++;
     }
 
     public BlogPost(String title, String content) {
