@@ -1,15 +1,21 @@
 package com.undertakers.blog.user;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "users")
 public class User {
 
-    private static int currentId = 0;
+    @Id @GeneratedValue
+    @Column(name = "id")
     private int id;
+    @Column(name = "username")
     private String username;
+    @Column(name = "password")
     private String password;
 
     public User(){
-        this.id = currentId;
-        currentId++;
+
     }
 
     public User(String username, String password){

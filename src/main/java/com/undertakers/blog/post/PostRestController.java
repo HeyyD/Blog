@@ -7,6 +7,7 @@ import java.util.List;
 
 @RestController
 public class PostRestController {
+    /*
     @Autowired
     private PostRepository postRepository;
 
@@ -26,4 +27,5 @@ public class PostRestController {
     public Iterable<BlogPost> findAll(){
         return postRepository.findAll();
     }
+    */
 }

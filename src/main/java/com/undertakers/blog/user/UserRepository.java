@@ -1,16 +1,12 @@
 package com.undertakers.blog.user;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.undertakers.blog.repository.BlogRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.List;
-
 @RestController
-public class UserRepository implements BlogRepository<User, Integer>{
+public interface UserRepository extends CrudRepository<User, Integer>{
 
+    /*
     List<User> users;
 
     @PostConstruct
@@ -58,4 +54,5 @@ public class UserRepository implements BlogRepository<User, Integer>{
         }
         return false;
     }
+    */
 }

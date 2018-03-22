@@ -1,16 +1,11 @@
 package com.undertakers.blog.post;
 
-import com.undertakers.blog.repository.BlogRepository;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 @RestController
-public class PostRepository implements BlogRepository<BlogPost, Integer> {
+public class PostRepository{
 
+    /*
     private List<BlogPost> posts;
 
     @PostConstruct
@@ -49,4 +44,5 @@ public class PostRepository implements BlogRepository<BlogPost, Integer> {
         }
         return null;
     }
+    */
 }
