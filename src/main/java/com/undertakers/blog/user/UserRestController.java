@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -27,12 +28,17 @@ public class UserRestController {
         userRepository.deleteById(id);
     }
 
-    /*
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public boolean login(@RequestBody LoginRequest request){
-        return userRepository.login(request);
+
+        Iterable<User> users = userRepository.findAll();
+
+        for(User user: users) {
+            if(user.getUsername().equals(request.getUsername()) && user.getPassword().equals(request.getPassword()))
+                return true;
+        }
+        return false;
     }
-    */
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
     public Optional<User> getUserById(@PathVariable int id) {
