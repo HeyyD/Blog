@@ -1,0 +1,35 @@
+import React, { Component } from 'react';
+import Post from './Post'
+
+class PostFeed extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {'posts': []};
+  }
+
+  componentDidMount() {
+    let url = 'http://localhost:8080/posts'
+    fetch(url).then(result => result.json())
+              .then(res => {
+                let temporary = [];
+                for(let i = 0; i < res.length; i++) {
+                  let title = res[i].title;
+                  let content = res[i].content;
+                  let date = res[i].date;
+                  let id = res[i].userId;
+                  temporary.push(<Post userId={id} title={title} content={content} date={date}/>);
+                }
+                this.setState({'posts': temporary});
+              });
+  }
+
+  render() {
+    return(
+      <div>
+        {this.state.posts}
+      </div>
+    );
+  }
+}
+
+export default PostFeed;
