@@ -16,15 +16,18 @@ public class BlogPost {
     private String content;
     @Column(name = "date")
     private Date date;
+    @Column(name = "user_id")
+    private int userId;
 
     public BlogPost() {
         this.date = new Date();
     }
 
-    public BlogPost(String title, String content) {
+    public BlogPost(String title, String content, int userId) {
         this();
         this.title = title;
         this.content = content;
+        this.userId = userId;
     }
 
     public int getId() {
@@ -42,5 +45,7 @@ public class BlogPost {
     public Date getDate() {
         return date;
     }
+
+    public int getUserId() {return this.userId;}
 
 }

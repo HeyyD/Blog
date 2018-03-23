@@ -14,14 +14,6 @@ public class PostRestController {
 
     @Autowired
     private PostRepository postRepository;
-
-    @Autowired
-    private EntityManager entityManager;
-
-    @PostConstruct
-    public void init(){
-        postRepository.save(new BlogPost("Heidi's lifestyle blogs first post", "Today I drank a bottle of wine, and played smite."));
-    }
     
     @RequestMapping(value = "/posts", method = RequestMethod.POST)
     public BlogPost saveBlogPost(@RequestBody BlogPost entity) {
