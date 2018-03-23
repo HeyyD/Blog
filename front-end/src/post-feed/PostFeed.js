@@ -10,23 +10,23 @@ class PostFeed extends Component {
   componentDidMount() {
     let url = 'http://localhost:8080/posts'
     fetch(url).then(result => result.json())
-              .then(res => this.setState({'posts': res}));
+              .then(res => {
+                let temporary = [];
+                for(let i = 0; i < res.length; i++) {
+                  let title = res[i].title;
+                  let content = res[i].content;
+                  let date = res[i].date;
+                  let id = res[i].userId;
+                  temporary.push(<Post userId={id} title={title} content={content} date={date}/>);
+                }
+                this.setState({'posts': temporary});
+              });
   }
 
   render() {
-
-    let posts = [];
-
-    for(let i = 0; i < this.state.posts.length; i++) {
-      let title = this.state.posts[i].title;
-      let content = this.state.posts[i].content;
-      let date = this.state.posts[i].date;
-      posts.push(<Post title={title} content={content} date={date}/>);
-    }
-
     return(
       <div>
-        {posts}
+        {this.state.posts}
       </div>
     );
   }

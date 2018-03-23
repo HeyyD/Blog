@@ -14,7 +14,7 @@ public class PostRestController {
 
     @Autowired
     private PostRepository postRepository;
-    
+
     @RequestMapping(value = "/posts", method = RequestMethod.POST)
     public BlogPost saveBlogPost(@RequestBody BlogPost entity) {
         return postRepository.save(entity);
