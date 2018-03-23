@@ -11,7 +11,7 @@ class Post extends Component {
     return (
       <div className="Post">
         <h2>{this.props.title}</h2>
-        <h5>{this.props.date}</h5>
+        <h5>{this.props.username + ' | ' + this.props.date}</h5>
         <p>{this.props.content}</p>
       </div>
     );
