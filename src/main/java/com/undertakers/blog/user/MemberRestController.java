@@ -4,36 +4,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
-public class UserRestController {
+public class MemberRestController {
     @Autowired
-    private UserRepository userRepository;
+    private MemberRepository memberRepository;
 
     @PostConstruct
     public void init(){
-        userRepository.save(new User("Admin", "admin"));
-        userRepository.save(new User("User", "user"));
+        memberRepository.save(new Member("Admin", "admin"));
+        memberRepository.save(new Member("Member", "user"));
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
-    public User saveUser(@RequestBody User entity){
-        return userRepository.save(entity);
+    public Member saveUser(@RequestBody Member entity){
+        return memberRepository.save(entity);
     }
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE )
     public void deleteUser(@PathVariable int id){
-        userRepository.deleteById(id);
+        memberRepository.deleteById(id);
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public boolean login(@RequestBody LoginRequest request){
 
-        Iterable<User> users = userRepository.findAll();
+        Iterable<Member> users = memberRepository.findAll();
 
-        for(User user: users) {
+        for(Member user: users) {
             if(user.getUsername().equals(request.getUsername()) && user.getPassword().equals(request.getPassword()))
                 return true;
         }
@@ -41,12 +40,12 @@ public class UserRestController {
     }
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
-    public Optional<User> getUserById(@PathVariable int id) {
-        return userRepository.findById(id);
+    public Optional<Member> getUserById(@PathVariable int id) {
+        return memberRepository.findById(id);
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public Iterable<User> getAllUsers() {
-        return userRepository.findAll();
+    public Iterable<Member> getAllUsers() {
+        return memberRepository.findAll();
     }
 }

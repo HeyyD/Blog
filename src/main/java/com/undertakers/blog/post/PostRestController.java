@@ -1,9 +1,11 @@
 package com.undertakers.blog.post;
 
+import com.undertakers.blog.user.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,11 +15,14 @@ public class PostRestController {
     @Autowired
     private PostRepository postRepository;
 
+    @Autowired
+    private EntityManager entityManager;
+
     @PostConstruct
     public void init(){
         postRepository.save(new BlogPost("Heidi's lifestyle blogs first post", "Today I drank a bottle of wine, and played smite."));
     }
-
+    
     @RequestMapping(value = "/posts", method = RequestMethod.POST)
     public BlogPost saveBlogPost(@RequestBody BlogPost entity) {
         return postRepository.save(entity);

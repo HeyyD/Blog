@@ -3,8 +3,8 @@ package com.undertakers.blog.user;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "member")
+public class Member {
 
     @Id @GeneratedValue
     @Column(name = "id")
@@ -14,11 +14,11 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    public User(){
+    public Member(){
 
     }
 
-    public User(String username, String password){
+    public Member(String username, String password){
         this();
         this.username = username;
         this.password = password;
