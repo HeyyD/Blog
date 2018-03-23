@@ -1,9 +1,9 @@
 package com.undertakers.blog.user;
 
-public class UserNotFoundException extends IllegalArgumentException {
+public class MemberNotFoundException extends IllegalArgumentException {
     private int id;
 
-    public UserNotFoundException(int id) {
+    public MemberNotFoundException(int id) {
         this.id = id;
     }
     public int getId(){return this.id;}

@@ -13,7 +13,7 @@ Get all users
 curl -X GET localhost:8080/users
 
 Add blog post
-curl -H "Content-Type: application/json" -X POST -d "{\"title\":\"Title\", \"content\":\"Example content\"}" localhost:8080/posts
+curl -H "Content-Type: application/json" -X POST -d "{\"title\":\"Title\", \"content\":\"Example content\", \"userId\":\"1\"}" localhost:8080/posts
 
 Delete blog post
 curl -X DELETE localhost:8080/posts/{id}
