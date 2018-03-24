@@ -8,7 +8,7 @@ class PostFeed extends Component {
   }
 
   componentDidMount() {
-    let url = 'http://localhost:8080/posts'
+    let url = window.location.href + '/posts';
     fetch(url).then(result => result.json())
               .then(res => {
                 let temporary = [];

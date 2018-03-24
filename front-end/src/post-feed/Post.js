@@ -9,7 +9,7 @@ class Post extends Component {
   }
 
   componentDidMount(){
-    let url = 'http://localhost:8080/users/' + this.props.userId;
+    let url = window.location.href + '/users/' + this.props.userId;
     fetch(url).then(result => result.json())
               .then(res => {
                 this.setState({'username': res.username})
