@@ -11,12 +11,6 @@ public class MemberRestController {
     @Autowired
     private MemberRepository memberRepository;
 
-    @PostConstruct
-    public void init(){
-        memberRepository.save(new Member("Admin", "admin"));
-        memberRepository.save(new Member("Member", "user"));
-    }
-
     @RequestMapping(value = "/users", method = RequestMethod.POST)
     public Member saveUser(@RequestBody Member entity){
         return memberRepository.save(entity);
