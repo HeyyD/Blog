@@ -38,10 +38,15 @@ class Login extends Component {
 
   render() {
     return(
-      <div className="Login-form">
-        <input name="username" placeholder="Username" type="text" onChange={this.onUsernameChange}/>
-        <input name="password" placeholder="Password" type="password" onChange={this.onUsernameChange}/>
-        <button onClick={this.login}>Login</button>
+      <div className="Login-container">
+        <div className="Login-form">
+          <input name="username" placeholder="Username" type="text" onChange={this.onUsernameChange}/>
+          <input name="password" placeholder="Password" type="password" onChange={this.onUsernameChange}/>
+          <button onClick={this.login}>Login</button>
+        </div>
+        <div className="Create-user-link">
+          <a href="http://github.com/HeyyD/Blog">Create new account</a>
+        </div>
       </div>
     );
   }
