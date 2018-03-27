@@ -32,7 +32,8 @@ class Login extends Component {
                     .then(result => {
                       if(result === true)
                         this.props.signIn(this.state.username);
-                    });
+                    })
+                    .catch(function(error) {console.log(error)});
   }
 
   render() {

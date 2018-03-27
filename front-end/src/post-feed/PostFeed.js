@@ -20,7 +20,8 @@ class PostFeed extends Component {
                   temporary.push(<Post userId={id} title={title} content={content} date={date}/>);
                 }
                 this.setState({'posts': temporary});
-              });
+              })
+              .catch(function(error) {console.log(error)});
   }
 
   render() {
