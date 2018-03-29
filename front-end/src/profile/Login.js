@@ -45,7 +45,7 @@ class Login extends Component {
           <button onClick={this.login}>Login</button>
         </div>
         <div className="Create-user-link">
-          <a href="http://github.com/HeyyD/Blog">Create new account</a>
+          <a href="/user">Create new account</a>
         </div>
       </div>
     );
