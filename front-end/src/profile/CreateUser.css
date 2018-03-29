@@ -2,10 +2,8 @@
   background: lightgray;
   width: 300px;
   padding: 20px;
-  vertical-align: middle;
-  margin: 50% auto 0 auto;
+  margin: 20px auto;
   text-align: center;
-  transform: translateY(-50%);
 }
 
 .Create-account > input {
