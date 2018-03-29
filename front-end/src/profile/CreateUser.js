@@ -11,7 +11,8 @@ class CreateUser extends Component {
     this.state = {
       username: '',
       password: '',
-      confirm: ''
+      confirm: '',
+      errorMessage: ''
     }
   }
 
@@ -36,13 +37,16 @@ class CreateUser extends Component {
           "Content-Type": "application/json"
         },
         method: "POST"
-      }).catch(console.log('error'));
+      }).catch(this.setState({errorMessage: 'Username is already in use'}));
+    } else {
+      this.setState({errorMessage: 'Passwords do not match'})
     }
   }
 
   render() {
     return(
       <form className="Create-account">
+        <h5>{this.state.errorMessage}</h5>
         <input name="username" type="text" placeholder="Username" onChange={this.handleChange}/>
         <input name="password" type="password" placeholder="Password" onChange={this.handleChange}/>
         <input name="confirm" type="password" placeholder="Confirm password" onChange={this.handleChange}/>

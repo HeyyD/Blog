@@ -4,10 +4,15 @@
   padding: 20px;
   vertical-align: middle;
   margin: 50% auto 0 auto;
+  text-align: center;
   transform: translateY(-50%);
 }
 
 .Create-account > input {
   margin: 10px auto 10px auto;
   display: block;
+}
+
+.Create-account > h5 {
+  color: red;
 }
