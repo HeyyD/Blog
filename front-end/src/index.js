@@ -10,7 +10,7 @@ ReactDOM.render(
   <Router>
     <div>
       <Route exact path="/" component={App}/>
-      <Route path="/user" component={CreateUser}/>
+      <Route path="/users" component={CreateUser}/>
     </div>
   </Router>
   , document.getElementById('root')
