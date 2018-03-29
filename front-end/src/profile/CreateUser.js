@@ -37,7 +37,14 @@ class CreateUser extends Component {
           "Content-Type": "application/json"
         },
         method: "POST"
-      }).catch(this.setState({errorMessage: 'Username is already in use'}));
+      }).then((response) => {
+        if(!response.ok) {
+          this.setState({errorMessage: 'Username is already in use'})
+          throw response;
+        }
+        this.props.history.push("/");
+      });
+      
     } else {
       this.setState({errorMessage: 'Passwords do not match'})
     }
