@@ -1,0 +1,16 @@
+.Create-account {
+  background: lightgray;
+  width: 300px;
+  padding: 20px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.Create-account > input {
+  margin: 10px auto 10px auto;
+  display: block;
+}
+
+.Create-account > h5 {
+  color: red;
+}

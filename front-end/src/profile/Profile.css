@@ -1,5 +1,6 @@
 .Profile-view {
   padding: 10px;
+  background: gray;
 }
 
 .Profile-view > button {
@@ -8,5 +9,5 @@
 
 .Profile-view > label {
   margin: 5px;
-  color: gray;
+  color: lightgray;
 }

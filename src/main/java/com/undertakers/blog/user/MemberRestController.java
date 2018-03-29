@@ -2,8 +2,6 @@ package com.undertakers.blog.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.PostConstruct;
 import java.util.Optional;
 
 @RestController
@@ -13,6 +11,13 @@ public class MemberRestController {
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
     public Member saveUser(@RequestBody Member entity){
+        Iterable<Member> members = getAllUsers();
+
+        for(Member m: members) {
+            if(m.getUsername().equals(entity.getUsername())){
+                throw new UsernameTakenException(entity.getUsername());
+            }
+        }
         return memberRepository.save(entity);
     }
 

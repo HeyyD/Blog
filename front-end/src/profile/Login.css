@@ -1,7 +1,24 @@
+.Login-container {
+  display: table;
+  float: right;
+}
+
 .Login-form {
   padding: 10px;
+  display: table-row;
 }
 
 .Login-form > input {
   margin: 5px;
+  display: table-column
+}
+
+.Create-user-link {
+  text-align: left;
+  display: table-row;
+}
+
+.Create-user-link > a{
+  margin: 5px;
+  font-size: 14px;
 }

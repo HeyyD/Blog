@@ -32,15 +32,21 @@ class Login extends Component {
                     .then(result => {
                       if(result === true)
                         this.props.signIn(this.state.username);
-                    });
+                    })
+                    .catch(function(error) {console.log(error)});
   }
 
   render() {
     return(
-      <div className="Login-form">
-        <input name="username" placeholder="Username" type="text" onChange={this.onUsernameChange}/>
-        <input name="password" placeholder="Password" type="password" onChange={this.onUsernameChange}/>
-        <button onClick={this.login}>Login</button>
+      <div className="Login-container">
+        <div className="Login-form">
+          <input name="username" placeholder="Username" type="text" onChange={this.onUsernameChange}/>
+          <input name="password" placeholder="Password" type="password" onChange={this.onUsernameChange}/>
+          <button onClick={this.login}>Login</button>
+        </div>
+        <div className="Create-user-link">
+          <a href="/users">Create new account</a>
+        </div>
       </div>
     );
   }
