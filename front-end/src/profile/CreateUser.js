@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './CreateUser.css';
 
 class CreateUser extends Component {
   render() {
@@ -7,7 +8,7 @@ class CreateUser extends Component {
         <input type="text" placeholder="Username"/>
         <input type="password" placeholder="Password"/>
         <input type="password" placeholder="Confirm password"/>
-        <button>Create an account!</button>
+        <input type="button" value="Create an account!" />
       </form>
     );
   }
