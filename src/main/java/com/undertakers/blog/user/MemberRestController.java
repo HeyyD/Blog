@@ -10,6 +10,7 @@ import java.util.Optional;
 public class MemberRestController {
     @Autowired
     private MemberRepository memberRepository;
+    private boolean loggedIn = false;
 
     @PostConstruct
     public void init() {
@@ -40,9 +41,19 @@ public class MemberRestController {
 
         for(Member user: users) {
             if(user.getUsername().equals(request.getUsername()) && user.getPassword().equals(request.getPassword()))
-                return true;
+                this.loggedIn = true;
         }
-        return false;
+        return loggedIn;
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public boolean loggedIn() {
+        return this.loggedIn;
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public void logout() {
+        this.loggedIn = false;
     }
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
