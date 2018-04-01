@@ -1,5 +1,6 @@
 target/
 .mvn/node/yarn
+.mvn/node/node
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
@@ -27,6 +28,7 @@ nbdist/
 ### React ###
 # dependencies
 front-end/node_modules
+front-end/yarn.lock
 
 # testing
 front-end/coverage
