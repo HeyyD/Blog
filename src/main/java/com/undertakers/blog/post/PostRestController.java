@@ -19,7 +19,7 @@ public class PostRestController {
     public void init() {
         postRepository.save(new BlogPost("FIRST POST!"
                                         ,"This is the first post"
-                                        , 2));
+                                        , 1));
     }
 
     @RequestMapping(value = "/posts", method = RequestMethod.POST)
