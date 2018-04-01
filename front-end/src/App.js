@@ -15,8 +15,8 @@ class App extends Component {
           <h1 className="App-title">Blog Site</h1>
         </header>
         <div className="App-main-feed">
-            <PostFeed/>
             <MainMenu/>
+            <PostFeed/>
         </div>
       </div>
     );

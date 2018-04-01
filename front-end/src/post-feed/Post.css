@@ -1,3 +1,7 @@
+.Post-feed {
+  display: block;
+}
+
 .Post {
   background: #EEEEEE;
   text-align: left;

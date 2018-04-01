@@ -26,7 +26,7 @@ class PostFeed extends Component {
 
   render() {
     return(
-      <div>
+      <div className="Post-feed">
         {this.state.posts}
       </div>
     );
