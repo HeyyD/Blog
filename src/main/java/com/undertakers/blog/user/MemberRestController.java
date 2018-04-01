@@ -2,12 +2,19 @@ package com.undertakers.blog.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.PostConstruct;
 import java.util.Optional;
 
 @RestController
 public class MemberRestController {
     @Autowired
     private MemberRepository memberRepository;
+
+    @PostConstruct
+    public void init() {
+        memberRepository.save(new Member("Admin", "admin"));
+    }
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
     public Member saveUser(@RequestBody Member entity){
