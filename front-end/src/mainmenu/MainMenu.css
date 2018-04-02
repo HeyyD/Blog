@@ -7,6 +7,16 @@
 }
 
 .Main-menu-panel > a {
-    padding: 10px;
-    font-size: large;
+    vertical-align: middle;
+    text-align: center;
+    display: table-cell;
+    height: 50px;
+    width: 100px;
+    color: black;
+    text-decoration: none;
+}
+
+.Main-menu-panel > a:hover {
+    background: #EEEEEE;
+    color: gray;
 }
