@@ -25,6 +25,9 @@ class PostFeed extends Component {
   }
 
   render() {
+
+    this.state.posts.reverse();
+
     return(
       <div className="Post-feed">
         {this.state.posts}
