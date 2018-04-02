@@ -25,7 +25,7 @@ class MainMenu extends Component {
         let links = [];
 
         if(this.state.loggedIn) {
-            links.push(<a href="/posts">Post</a>);
+            links.push(<a key="1" href="/posts">Post</a>);
         }
 
         return(

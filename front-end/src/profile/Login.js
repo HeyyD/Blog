@@ -28,12 +28,7 @@ class Login extends Component {
       })
     }
 
-    fetch(url, init).then(res => res.json())
-                    .then(result => {
-                      if(result === true)
-                        this.props.signIn(this.state.username);
-                    })
-                    .catch(function(error) {console.log(error)});
+    fetch(url, init).then(res => window.location.reload());
   }
 
   render() {

@@ -8,7 +8,6 @@ class Profile extends Component {
 
   constructor(props) {
     super(props);
-    this.signIn = this.signIn.bind(this);
     this.signOut = this.signOut.bind(this);
     this.state = {
         username: '',
@@ -17,21 +16,20 @@ class Profile extends Component {
   }
 
   componentWillMount() {
-      let url = window.location.href + '/login';
+      let url = window.location.href;
 
-      fetch(url).then(result => result.json())
+      fetch(url + '/login').then(result => result.json())
                 .then(res => {
                     this.setState({loggedIn: res});
+
+                    if(res === true) {
+                        fetch(url + '/current_user').then(res => res.json())
+                            .then(result => {
+                               this.setState({username: result.username});
+                            });
+                    }
+
                 });
-  }
-
-  signIn(user) {
-      this.setState({
-          username: user,
-          loggedIn: true
-      })
-
-      window.location.reload();
   }
 
   signOut(){
@@ -56,7 +54,7 @@ class Profile extends Component {
       );
     } else {
       return(
-        <Login signIn={this.signIn}/>
+        <Login />
       );
     }
   }
