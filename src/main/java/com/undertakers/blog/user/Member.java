@@ -3,10 +3,10 @@ package com.undertakers.blog.user;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "member")
+@TableGenerator(name = "member", initialValue = 0)
 public class Member {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.TABLE, generator = "member")
     @Column(name = "id")
     private int id;
     @Column(name = "username")

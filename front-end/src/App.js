@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Profile from './profile/Profile';
-import PostFeed from './post-feed/PostFeed'
+import PostFeed from './post-feed/PostFeed';
+import MainMenu from './mainmenu/MainMenu';
 
 class App extends Component {
   render() {
@@ -15,7 +15,8 @@ class App extends Component {
           <h1 className="App-title">Blog Site</h1>
         </header>
         <div className="App-main-feed">
-          <PostFeed/>
+            <MainMenu/>
+            <PostFeed/>
         </div>
       </div>
     );

@@ -8,6 +8,4 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public interface PostRepository extends CrudRepository<BlogPost, Integer>{
-    @Query("SELECT m FROM Member m where m.id = :id")
-    Member findMemberById(@Param("id") int id);
 }

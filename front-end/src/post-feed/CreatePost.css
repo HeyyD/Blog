@@ -1,0 +1,16 @@
+.Create-post {
+  width: 530px;
+  margin: 20px auto;
+  padding: 20px;
+  background: lightgrey;
+}
+
+.Create-post > textarea{
+  height: 400px;
+  width: 500px;
+}
+
+.Create-post > input, textarea {
+  display: block;
+  margin: 10px;
+}
