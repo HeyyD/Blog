@@ -6,27 +6,44 @@ import Login from './Login';
 
 class Profile extends Component {
 
-  loggedIn = false;
-
   constructor(props) {
     super(props);
     this.signIn = this.signIn.bind(this);
     this.signOut = this.signOut.bind(this);
-    this.state = {'username': 'username'}
+    this.state = {
+        username: '',
+        loggedIn: false
+    }
+  }
+
+  componentWillMount() {
+      let url = window.location.href + '/login';
+
+      fetch(url).then(result => result.json())
+                .then(res => {
+                    this.setState({loggedIn: res});
+                });
   }
 
   signIn(user) {
-    this.loggedIn = true;
-    this.setState({'username': user});
+      this.setState({
+          username: user,
+          loggedIn: true
+      })
   }
 
   signOut(){
-    this.loggedIn = false;
-    this.forceUpdate();
-  }
 
+      let url = window.location.href + '/logout'
+
+      fetch(url);
+
+      this.setState({
+          loggedIn: false
+      });
+  }
   render() {
-    if(this.loggedIn){
+    if(this.state.loggedIn){
       return(
         <div className="Profile-view">
           <label>{this.state.username}</label>
