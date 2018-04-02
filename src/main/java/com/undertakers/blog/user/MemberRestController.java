@@ -10,6 +10,8 @@ import java.util.Optional;
 public class MemberRestController {
     @Autowired
     private MemberRepository memberRepository;
+    private Member currentMember = null;
+    private boolean loggedIn = false;
 
     @PostConstruct
     public void init() {
@@ -39,10 +41,28 @@ public class MemberRestController {
         Iterable<Member> users = memberRepository.findAll();
 
         for(Member user: users) {
-            if(user.getUsername().equals(request.getUsername()) && user.getPassword().equals(request.getPassword()))
-                return true;
+            if(user.getUsername().equals(request.getUsername()) && user.getPassword().equals(request.getPassword())){
+                this.loggedIn = true;
+                this.currentMember = user;
+            }
         }
-        return false;
+        return loggedIn;
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public boolean loggedIn() {
+        return this.loggedIn;
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public void logout() {
+        this.loggedIn = false;
+        this.currentMember = null;
+    }
+
+    @RequestMapping(value = "/current_user", method = RequestMethod.GET)
+    public Member getCurrentMember() {
+        return this.currentMember;
     }
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
