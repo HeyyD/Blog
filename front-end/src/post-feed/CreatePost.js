@@ -35,13 +35,24 @@ class CreatePost extends Component {
     }
 
     post() {
-        console.log('here');
+
+        let url = window.location.href;
+        let data = {
+            title: this.state.title,
+            content: this.state.content,
+            userId: this.state.userId
+        }
+
+        fetch(url, {
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            },
+            method: "POST"
+        }).then(result => console.log(result));
     }
 
     render() {
-
-        console.log(this.state.userId);
-
         return(
             <div className="Create-post-container">
                 <form className="Create-post">
