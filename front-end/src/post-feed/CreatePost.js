@@ -49,7 +49,10 @@ class CreatePost extends Component {
                 "Content-Type": "application/json"
             },
             method: "POST"
-        }).then(result => console.log(result));
+        }).then(result => {
+            console.log(result);
+            this.props.history.push("/");
+        });
     }
 
     render() {
