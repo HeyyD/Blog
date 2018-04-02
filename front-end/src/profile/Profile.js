@@ -30,6 +30,8 @@ class Profile extends Component {
           username: user,
           loggedIn: true
       })
+
+      window.location.reload();
   }
 
   signOut(){
@@ -41,6 +43,8 @@ class Profile extends Component {
       this.setState({
           loggedIn: false
       });
+
+      window.location.reload();
   }
   render() {
     if(this.state.loggedIn){
