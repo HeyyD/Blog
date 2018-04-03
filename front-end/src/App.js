@@ -36,10 +36,8 @@ class App extends Component {
         return (
           <div className="App">
             <header className="hero">
-              <div className="User-profile">
                 <MainMenu/>
-              </div>
-              <h1 className="App-title">Blog Site</h1>
+              <h1>Blog Site</h1>
             </header>
             <div className="content-wrapper">
                 <PostFeed/>
