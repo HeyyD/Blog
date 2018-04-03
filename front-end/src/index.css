@@ -11,7 +11,7 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  height: 35px;
+  height: 70px;
 }
 
 nav ul {
@@ -91,7 +91,6 @@ h1 {
   background-size: 130%;
   overflow: hidden;
 }
-@value hero: .hero;
 
 .hero h1 {
   position: absolute;
