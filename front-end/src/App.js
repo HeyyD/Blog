@@ -7,13 +7,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <header className="hero">
           <div className="User-profile">
             <MainMenu/>
           </div>
           <h1 className="App-title">Blog Site</h1>
         </header>
-        <div className="App-main-feed">
+        <div className="content-wrapper">
             <PostFeed/>
         </div>
       </div>
