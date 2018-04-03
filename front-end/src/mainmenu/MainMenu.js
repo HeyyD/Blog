@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './MainMenu.css';
+import './../index.css';
 
 class MainMenu extends Component {
 
@@ -29,9 +29,11 @@ class MainMenu extends Component {
         }
 
         return(
-            <div className="Main-menu-panel">
-                {links}
-            </div>
+            <nav>
+                <div className="nv-bg">
+                    <ul>{links}</ul>
+                </div>
+            </nav>
         );
     }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './index.css';
 import Profile from './profile/Profile';
 import PostFeed from './post-feed/PostFeed';
 import MainMenu from './mainmenu/MainMenu';
