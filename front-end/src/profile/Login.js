@@ -37,7 +37,7 @@ class Login extends Component {
         <div className="Login-form">
           <input name="username" placeholder="Username" type="text" onChange={this.onUsernameChange}/>
           <input name="password" placeholder="Password" type="password" onChange={this.onUsernameChange}/>
-          <button onClick={this.login}>Login</button>
+          <a href="" onClick={this.login}>Login</a>
         </div>
         <div className="Create-user-link">
           <a href="/users">Create new account</a>
