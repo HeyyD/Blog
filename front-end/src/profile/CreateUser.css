@@ -13,7 +13,7 @@
 }
 
 .Create-account > h5 {
-  color: rgb(220, 120, 0);
+  color: #eee37b;
 }
 
 .Create-account > a {
@@ -29,5 +29,5 @@
 }
 
 .Create-account > a:hover {
-  color: rgb(220, 120, 0);
+  color: #eee37b;
 }

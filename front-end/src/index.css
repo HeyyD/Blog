@@ -42,7 +42,7 @@ nav a {
 nav h3 {
   width: 100%;
   height: 100%;
-  color: rgb(220, 120, 0);
+  color: #eee37b;
   font-family: Ubuntu;
   font-size: 1.15em;
   font-weight: lighter;
@@ -51,7 +51,7 @@ nav h3 {
 }
 
 nav a:hover {
-  color: rgb(220, 120, 0);
+  color: #eee37b;
 }
 
 .nav-bg {
@@ -87,7 +87,8 @@ h1 {
   width: 100%;
   height: 700px;
   background: rgb(50, 50, 50);
-  background: url(https://doninmass.files.wordpress.com/2013/04/walking-in-rain-painting-wallpaper-hd.jpg) no-repeat 50% 50% fixed;
+  background: url(https://artchive.ru/res/media/img/ox1000/work/24c/305359.jpg)
+              no-repeat 50% 50%;
   background-size: 130%;
   overflow: hidden;
 }
