@@ -3,11 +3,12 @@
 }
 
 .Post {
-  background: #EEEEEE;
+  font-family: Ubuntu;
+  text-indent: 1.5em;
   text-align: left;
+  background: #121513;
+  border-radius: 5px;
   padding: 30px;
   width: 500px;
   margin: 10px auto 10px auto;
-  box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2),
-               0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

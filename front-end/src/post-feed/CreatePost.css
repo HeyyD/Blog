@@ -2,7 +2,9 @@
   width: 530px;
   margin: 20px auto;
   padding: 20px;
-  background: lightgrey;
+  border-radius: 5px;
+  background: #121513;
+  text-align: center;
 }
 
 .Create-post > textarea{
@@ -13,4 +15,20 @@
 .Create-post > input, textarea {
   display: block;
   margin: 10px;
+}
+
+.Create-post > a {
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-decoration: none;
+  font-family: Ubuntu;
+  font-size: 1.15em;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  transition: .25s ease-in-out;
+}
+
+.Create-post > a:hover {
+  color: #eee37b;
 }

@@ -1,6 +1,7 @@
 .Login-container {
   display: table;
   float: right;
+  padding: 10px;
 }
 
 .Login-form {
