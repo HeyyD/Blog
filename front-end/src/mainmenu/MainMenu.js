@@ -48,7 +48,7 @@ class MainMenu extends Component {
         if(this.state.loggedIn) {
             return(
                 <nav>
-                    <div className="nv-bg">
+                    <div className="nav-bg">
                         <ul>
                             <li><h3>{this.state.username}</h3></li>
                             <li><a key="1" href="/posts">Post</a></li>
@@ -60,7 +60,7 @@ class MainMenu extends Component {
         } else {
             return(
                 <nav>
-                    <div className="nv-bg">
+                    <div className="nav-bg">
                         <Login/>
                     </div>
                 </nav>
