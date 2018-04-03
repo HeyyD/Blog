@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './index.css';
-import Profile from './profile/Profile';
 import PostFeed from './post-feed/PostFeed';
 import MainMenu from './mainmenu/MainMenu';
 
@@ -10,12 +9,11 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <div className="User-profile">
-            <Profile/>
+            <MainMenu/>
           </div>
           <h1 className="App-title">Blog Site</h1>
         </header>
         <div className="App-main-feed">
-            <MainMenu/>
             <PostFeed/>
         </div>
       </div>
