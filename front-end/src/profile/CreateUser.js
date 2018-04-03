@@ -29,7 +29,7 @@ class CreateUser extends Component {
     } else if (this.state.password.length < 6) {
       this.setState({errorMessage: 'Passwords must be at least 6 characters long'})
     } else if (this.state.username.length < 5) {
-      this.setState({errorMessage: 'Username has to be atleas 5 characters long'})
+      this.setState({errorMessage: 'Username has to be at least 5 characters long'})
     } else {
       this.createUser();
     }
@@ -64,7 +64,7 @@ class CreateUser extends Component {
         <input name="username" type="text" placeholder="Username" onChange={this.handleChange}/>
         <input name="password" type="password" placeholder="Password" onChange={this.handleChange}/>
         <input name="confirm" type="password" placeholder="Confirm password" onChange={this.handleChange}/>
-        <input type="button" value="Create an account!" onClick={this.checkInformation} />
+          <a href="#" onClick={this.checkInformation}>Create an account!</a>
       </form>
     );
   }

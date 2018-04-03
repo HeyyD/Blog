@@ -1,5 +1,6 @@
 .Create-account {
-  background: lightgray;
+  background: #121513;
+  border-radius: 5px;
   width: 300px;
   padding: 20px;
   margin: 20px auto;
@@ -12,5 +13,21 @@
 }
 
 .Create-account > h5 {
-  color: red;
+  color: rgb(220, 120, 0);
+}
+
+.Create-account > a {
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-decoration: none;
+  font-family: Ubuntu;
+  font-size: 1em;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  transition: .25s ease-in-out;
+}
+
+.Create-account > a:hover {
+  color: rgb(220, 120, 0);
 }
