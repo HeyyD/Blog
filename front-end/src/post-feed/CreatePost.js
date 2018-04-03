@@ -36,23 +36,26 @@ class CreatePost extends Component {
 
     post() {
 
-        let url = window.location.href;
-        let data = {
-            title: this.state.title,
-            content: this.state.content,
-            userId: this.state.userId
-        }
+        if(this.state.loggedIn){
+            let url = window.location.href;
+            let data = {
+                title: this.state.title,
+                content: this.state.content,
+                userId: this.state.userId
+            }
 
-        fetch(url, {
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json"
-            },
-            method: "POST"
-        }).then(result => {
-            console.log(result);
-            this.props.history.push("/");
-        });
+            fetch(url, {
+                body: JSON.stringify(data),
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                method: "POST"
+            }).then(result => {
+                console.log(result);
+            });
+        } else {
+            alert('You need to be logged in to post!');
+        }
     }
 
     render() {
@@ -61,7 +64,7 @@ class CreatePost extends Component {
                 <form className="Create-post">
                     <input name="title" type="text" placeholder="Title" onChange={this.handleChange}/>
                     <textarea name="content" placeholder="Content" onChange={this.handleChange}/>
-                    <input type="button" value="Post" onClick={this.post} disabled={!this.state.loggedIn}/>
+                    <a href="/" onClick={this.post}>Post</a>
                 </form>
             </div>
         );
