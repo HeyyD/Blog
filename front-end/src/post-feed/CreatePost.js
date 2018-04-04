@@ -17,7 +17,7 @@ class CreatePost extends Component {
     }
 
     componentWillMount() {
-        fetch(window.location.origin + '/current_user')
+        fetch(window.location.origin + '/users/current')
             .then(res => res.json())
             .then(result => {
                 this.setState({

@@ -17,7 +17,7 @@ class Login extends Component {
   login(event) {
     event.preventDefault();
 
-    let url = window.location.href + '/login';
+    let url = window.location.href + '/users/login';
     let data = {username : this.state.username, password : this.state.password}
 
     let init = {

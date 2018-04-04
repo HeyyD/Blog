@@ -16,12 +16,12 @@ class MainMenu extends Component {
     componentWillMount() {
         let url = window.location.href;
 
-        fetch(url + '/login').then(result => result.json())
+        fetch(url + '/users/login').then(result => result.json())
             .then(res => {
                 this.setState({loggedIn: res});
 
                 if(res === true) {
-                    fetch(url + '/current_user').then(res => res.json())
+                    fetch(url + '/users/current').then(res => res.json())
                         .then(result => {
                             this.setState({username: result.username});
                         });
@@ -32,7 +32,7 @@ class MainMenu extends Component {
 
     signOut(){
 
-        let url = window.location.href + '/logout'
+        let url = window.location.href + '/users/logout'
 
         fetch(url);
 
