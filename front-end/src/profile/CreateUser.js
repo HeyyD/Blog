@@ -23,7 +23,10 @@ class CreateUser extends Component {
     });
   }
 
-  checkInformation() {
+  checkInformation(event) {
+
+    event.preventDefault();
+
     if(this.state.password !== this.state.confirm) {
       this.setState({errorMessage: 'Passwords do not match'})
     } else if (this.state.password.length < 6) {
@@ -64,7 +67,7 @@ class CreateUser extends Component {
         <input name="username" type="text" placeholder="Username" onChange={this.handleChange}/>
         <input name="password" type="password" placeholder="Password" onChange={this.handleChange}/>
         <input name="confirm" type="password" placeholder="Confirm password" onChange={this.handleChange}/>
-          <a href="#" onClick={this.checkInformation}>Create an account!</a>
+          <a href="" onClick={this.checkInformation}>Create an account!</a>
       </form>
     );
   }
