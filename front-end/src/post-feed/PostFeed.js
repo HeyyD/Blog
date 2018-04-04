@@ -13,11 +13,12 @@ class PostFeed extends Component {
               .then(res => {
                 let temporary = [];
                 for(let i = 0; i < res.length; i++) {
+                  let id = res[i].id;
                   let title = res[i].title;
                   let content = res[i].content;
                   let date = res[i].date;
-                  let id = res[i].userId;
-                  temporary.push(<Post key={i} userId={id} title={title} content={content} date={date}/>);
+                  let userId = res[i].userId;
+                  temporary.push(<Post key={i} id={id} userId={userId} title={title} content={content} date={date}/>);
                 }
                 this.setState({'posts': temporary});
               })
