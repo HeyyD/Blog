@@ -12,8 +12,8 @@ public class BlogPost {
     private int id;
     @Column(name = "title")
     private String title;
+    @Column(columnDefinition = "clob")
     @Lob
-    @Column(name = "content", length = 1024)
     private String content;
     @Column(name = "date")
     private Date date;
