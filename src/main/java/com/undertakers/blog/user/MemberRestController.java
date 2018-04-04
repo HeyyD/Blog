@@ -35,7 +35,7 @@ public class MemberRestController {
         memberRepository.deleteById(id);
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/users/login", method = RequestMethod.POST)
     public boolean login(@RequestBody LoginRequest request){
 
         Iterable<Member> users = memberRepository.findAll();
@@ -49,18 +49,18 @@ public class MemberRestController {
         return loggedIn;
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public boolean loggedIn() {
+    @RequestMapping(value = "/users/login")
+    public boolean isLoggedIn() {
         return this.loggedIn;
     }
 
-    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    @RequestMapping(value = "/users/logout", method = RequestMethod.GET)
     public void logout() {
         this.loggedIn = false;
         this.currentMember = null;
     }
 
-    @RequestMapping(value = "/current_user", method = RequestMethod.GET)
+    @RequestMapping(value = "/users/current", method = RequestMethod.GET)
     public Member getCurrentMember() {
         return this.currentMember;
     }
