@@ -13,6 +13,12 @@
   width: 500px;
   margin: 10px auto 10px auto;
 }
+
+.Post:hover {
+  background: #24232d;
+  color: #eee37b;
+}
+
 .Post a {
   position: absolute;
   top: 0;
