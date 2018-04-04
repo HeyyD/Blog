@@ -25,7 +25,7 @@ class MainMenu extends Component {
                     fetch(url + '/users/current').then(res => res.json())
                         .then(result => {
                             this.setState({username: result.username});
-                        });
+                        }).catch(error => console.log(error));
                 }
 
             });
