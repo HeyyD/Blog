@@ -28,7 +28,7 @@ class Login extends Component {
       })
     }
 
-    fetch(url, init).then(res => window.location.reload());
+    this.props.signIn(url, init);
   }
 
   render() {

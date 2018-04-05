@@ -7,6 +7,7 @@ class MainMenu extends Component {
     constructor(props) {
         super(props);
         this.signOut = this.signOut.bind(this);
+        this.signIn = this.signIn.bind(this);
         this.state = {
             username: '',
             loggedIn: false
@@ -24,23 +25,34 @@ class MainMenu extends Component {
                     fetch(url + '/users/current').then(res => res.json())
                         .then(result => {
                             this.setState({username: result.username});
-                        });
+                        }).catch(error => console.log(error));
                 }
 
             });
     }
 
-    signOut(){
+    signOut(event){
+
+        event.preventDefault();
 
         let url = window.location.href + '/users/logout'
 
-        fetch(url);
+        fetch(url).then(res => this.setState({loggedIn: false}));
+    }
 
-        this.setState({
-            loggedIn: false
-        });
-
-        window.location.reload();
+    signIn(url, init) {
+      fetch(url, init).then(res => res.json())
+                      .then(result => {
+                          if(result === true) {
+                            fetch(window.location.href + '/users/current').then(res => res.json())
+                              .then(result => {
+                                this.setState({
+                                  username: result.username,
+                                  loggedIn: result
+                                });
+                              });
+                          }
+                      });
     }
 
     render() {
@@ -61,7 +73,7 @@ class MainMenu extends Component {
             return(
                 <nav>
                     <div className="nav-bg">
-                        <Login/>
+                        <Login signIn={this.signIn}/>
                     </div>
                 </nav>
             );

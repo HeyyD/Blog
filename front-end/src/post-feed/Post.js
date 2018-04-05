@@ -19,6 +19,7 @@ class Post extends Component {
   render() {
     return (
       <div className="Post">
+        <a href={'/posts/' + this.props.id }> </a>
         <h2>{this.props.title}</h2>
         <h5>{this.state.username + ' | ' + this.props.date}</h5>
         <p>{this.props.content}</p>
