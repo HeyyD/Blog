@@ -15,6 +15,13 @@ public class PostRestController {
     @Autowired
     private PostRepository postRepository;
 
+    @PostConstruct
+    public void init() {
+        postRepository.save(new BlogPost("FIRST POST!"
+                                        ,"This is the first post"
+                                        , 1));
+    }
+
     @RequestMapping(value = "/posts", method = RequestMethod.POST)
     public BlogPost saveBlogPost(@RequestBody BlogPost entity) {
         return postRepository.save(entity);

@@ -10,15 +10,23 @@ import java.util.Optional;
 public class MemberRestController {
     @Autowired
     private MemberRepository memberRepository;
+    private Member currentMember = null;
+    private boolean loggedIn = false;
 
     @PostConstruct
-    public void init(){
+    public void init() {
         memberRepository.save(new Member("Admin", "admin"));
-        memberRepository.save(new Member("Member", "user"));
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
     public Member saveUser(@RequestBody Member entity){
+        Iterable<Member> members = getAllUsers();
+
+        for(Member m: members) {
+            if(m.getUsername().equals(entity.getUsername())){
+                throw new UsernameTakenException(entity.getUsername());
+            }
+        }
         return memberRepository.save(entity);
     }
 
@@ -27,16 +35,34 @@ public class MemberRestController {
         memberRepository.deleteById(id);
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/users/login", method = RequestMethod.POST)
     public boolean login(@RequestBody LoginRequest request){
 
         Iterable<Member> users = memberRepository.findAll();
 
         for(Member user: users) {
-            if(user.getUsername().equals(request.getUsername()) && user.getPassword().equals(request.getPassword()))
-                return true;
+            if(user.getUsername().equals(request.getUsername()) && user.getPassword().equals(request.getPassword())){
+                this.loggedIn = true;
+                this.currentMember = user;
+            }
         }
-        return false;
+        return loggedIn;
+    }
+
+    @RequestMapping(value = "/users/login")
+    public boolean isLoggedIn() {
+        return this.loggedIn;
+    }
+
+    @RequestMapping(value = "/users/logout", method = RequestMethod.GET)
+    public void logout() {
+        this.loggedIn = false;
+        this.currentMember = null;
+    }
+
+    @RequestMapping(value = "/users/current", method = RequestMethod.GET)
+    public Member getCurrentMember() {
+        return this.currentMember;
     }
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)

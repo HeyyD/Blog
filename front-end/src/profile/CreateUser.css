@@ -1,0 +1,33 @@
+.Create-account {
+  background: #121513;
+  border-radius: 5px;
+  width: 300px;
+  padding: 20px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.Create-account > input {
+  margin: 10px auto 10px auto;
+  display: block;
+}
+
+.Create-account > h5 {
+  color: #eee37b;
+}
+
+.Create-account > a {
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-decoration: none;
+  font-family: Ubuntu;
+  font-size: 1em;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  transition: .25s ease-in-out;
+}
+
+.Create-account > a:hover {
+  color: #eee37b;
+}

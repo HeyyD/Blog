@@ -17,7 +17,7 @@ class Login extends Component {
   login(event) {
     event.preventDefault();
 
-    let url = 'http://localhost:8080/login/';
+    let url = window.location.href + '/users/login';
     let data = {username : this.state.username, password : this.state.password}
 
     let init = {
@@ -28,19 +28,20 @@ class Login extends Component {
       })
     }
 
-    fetch(url, init).then(res => res.json())
-                    .then(result => {
-                      if(result === true)
-                        this.props.signIn(this.state.username);
-                    });
+    this.props.signIn(url, init);
   }
 
   render() {
     return(
-      <div className="Login-form">
-        <input name="username" placeholder="Username" type="text" onChange={this.onUsernameChange}/>
-        <input name="password" placeholder="Password" type="password" onChange={this.onUsernameChange}/>
-        <button onClick={this.login}>Login</button>
+      <div className="Login-container">
+        <div className="Login-form">
+          <input name="username" placeholder="Username" type="text" onChange={this.onUsernameChange}/>
+          <input name="password" placeholder="Password" type="password" onChange={this.onUsernameChange}/>
+          <a href="" onClick={this.login}>Login</a>
+        </div>
+        <div className="Create-user-link">
+          <a href="/users">Create new account</a>
+        </div>
       </div>
     );
   }

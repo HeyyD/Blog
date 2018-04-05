@@ -9,7 +9,7 @@ class Post extends Component {
   }
 
   componentDidMount(){
-    let url = 'http://localhost:8080/users/' + this.props.userId;
+    let url = window.location.href + '/users/' + this.props.userId;
     fetch(url).then(result => result.json())
               .then(res => {
                 this.setState({'username': res.username})
@@ -19,6 +19,7 @@ class Post extends Component {
   render() {
     return (
       <div className="Post">
+        <a href={'/posts/' + this.props.id }> </a>
         <h2>{this.props.title}</h2>
         <h5>{this.state.username + ' | ' + this.props.date}</h5>
         <p>{this.props.content}</p>

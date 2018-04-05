@@ -1,16 +1,21 @@
+body{
+  background: gray;
+}
 .App{
   text-align: center;
 }
 .App-title{
-  background: gray;
   padding-top: 50px;
   color: lightgray;
   height: 100px;
   margin: 0;
+  clear: both;
 }
 .App-main-feed{
   background: #DDDDDD;
-  padding: 20px;
+  position: relative;
+  margin: 0;
+  padding: 0;
 }
 .User-profile{
   background: lightgray;

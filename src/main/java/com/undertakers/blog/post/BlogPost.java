@@ -4,15 +4,16 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "posts")
+@TableGenerator(name = "blog_post", initialValue = 0)
 public class BlogPost {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.TABLE, generator = "blog_post")
     @Column(name = "id")
     private int id;
     @Column(name = "title")
     private String title;
-    @Column(name = "content")
+    @Column(columnDefinition = "clob")
+    @Lob
     private String content;
     @Column(name = "date")
     private Date date;
