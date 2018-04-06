@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,5 +42,18 @@ public class PostRestController {
     @RequestMapping(method = RequestMethod.GET)
     public Iterable<BlogPost> findAll(){
         return postRepository.findAll();
+    }
+
+    //Commenting
+    @RequestMapping(value = "/comments", method = RequestMethod.POST)
+    public Comment saveComment(@RequestBody Comment entity) {
+        return commentRepository.save(entity);
+    }
+    @RequestMapping(value = "{id}/comments", method = RequestMethod.GET)
+    public Iterable<Comment> getComments(@PathVariable int id) {
+        List<Comment> comments = (List<Comment>) commentRepository.findAll();
+        List sorted = new ArrayList();
+        comments.stream().filter(c -> c.getPostId() == id).forEach(c -> sorted.add(c));
+        return sorted;
     }
 }
