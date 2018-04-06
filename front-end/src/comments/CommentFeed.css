@@ -1,0 +1,13 @@
+.Comment-feed {
+  background: #121513;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.Comment-feed > div {
+  background: #24232d;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  color: #eee37b;
+}

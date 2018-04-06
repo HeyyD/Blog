@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 
-import './Comment';
 import Comment from "./Comment";
+
+import './CommentFeed.css';
 
 class CommentFeed extends Component {
 
@@ -24,7 +25,7 @@ class CommentFeed extends Component {
 
   render() {
     return(
-      <div>
+      <div className="Comment-feed">
         {this.state.comments}
       </div>
     );
