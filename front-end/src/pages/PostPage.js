@@ -10,22 +10,33 @@ class PostPage extends Component {
   constructor(props) {
     super(props);
     this.handleScroll = this.handleScroll.bind(this);
+    this.setContent = this.setContent.bind(this);
     this.state = {
       title: '',
+      username: '',
+      date: '',
       content: ''
     }
   }
 
   componentWillMount(){
-    let url = window.location.href;
+    fetch(window.location.origin + '/posts/' + this.props.id)
+      .then(res => res.json())
+      .then(result => this.setContent(result));
 
-    fetch(url).then(res => res.json()).then(result => {
-      this.setState({
-        title: result.title,
-        content: result.content
-      })
-    });
+  }
 
+  setContent(json) {
+    fetch(window.location.origin + '/users/' + json.userId)
+      .then(res => res.json())
+      .then(result => {
+        this.setState({
+          title: json.title,
+          username: result.username,
+          date: json.date,
+          content: json.content
+        })
+      });
   }
 
   componentDidMount() {
@@ -57,6 +68,8 @@ class PostPage extends Component {
           <h1>{this.state.title}</h1>
         </header>
         <div className="content-wrapper">
+          <h3>{this.state.username}</h3>
+          <h4>{this.state.date}</h4>
           <p>{this.state.content}</p>
         </div>
       </div>
