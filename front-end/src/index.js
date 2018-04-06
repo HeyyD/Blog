@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 import './index.css';
 import App from './App';
-import CreateUser from './profile/CreateUser';
-import CreatePost from './post-feed/CreatePost';
+import CreateUser from './pages/CreateUser';
+import CreatePost from './pages/CreatePost';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(

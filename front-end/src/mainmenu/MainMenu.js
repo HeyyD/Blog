@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './../index.css';
-import Login from "../profile/Login";
+import Login from "./Login";
 
 class MainMenu extends Component {
 
