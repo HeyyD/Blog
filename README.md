@@ -1,6 +1,6 @@
 ## Repository can be tested with these commands
 
-#Add a user
+###### Add a user
 curl -H "Content-Type: application/json" -X POST -d "{\"username\":\"Username\", \"password\":\"password\"}" localhost:8080/users
 
 ###### Delete user
