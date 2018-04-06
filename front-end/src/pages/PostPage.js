@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import MainMenu from './../mainmenu/MainMenu';
-import Comment from './../comments/Comment';
+import CommentFeed from './../comments/CommentFeed';
 
 import '.././index.css';
 import $ from "jquery";
@@ -72,6 +72,7 @@ class PostPage extends Component {
           <h3>{this.state.username}</h3>
           <h4>{this.state.date}</h4>
           <p>{this.state.content}</p>
+          <CommentFeed/>
         </div>
       </div>
       );
