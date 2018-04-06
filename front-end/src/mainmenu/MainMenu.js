@@ -35,7 +35,7 @@ class MainMenu extends Component {
 
         event.preventDefault();
 
-        let url = window.location.href + '/users/logout'
+        let url = window.location.origin + '/users/logout'
 
         fetch(url).then(res => this.setState({loggedIn: false}));
     }
