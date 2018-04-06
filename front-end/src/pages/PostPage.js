@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import MainMenu from './../mainmenu/MainMenu';
+import Comment from './../comments/Comment';
 
 import '.././index.css';
 import $ from "jquery";
