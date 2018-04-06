@@ -15,7 +15,7 @@ class MainMenu extends Component {
     }
 
     componentWillMount() {
-        let url = window.location.href;
+        let url = window.location.origin;
 
         fetch(url + '/users/login').then(result => result.json())
             .then(res => {
