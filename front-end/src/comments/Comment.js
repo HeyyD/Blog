@@ -6,6 +6,7 @@ class Comment extends Component {
     super(props);
     this.state = {
       username: '',
+      date: '',
       content: ''
     }
   }
@@ -16,6 +17,7 @@ class Comment extends Component {
       .then(result => {
         this.setState({
           username: result.username,
+          date: this.props.date,
           content: this.props.content
         });
       })
@@ -24,7 +26,7 @@ class Comment extends Component {
   render() {
     return(
       <div>
-        <h4>{this.state.username}</h4>
+        <h4>{this.state.username} | {this.props.date}</h4>
         <p>{this.state.content}</p>
       </div>
     );

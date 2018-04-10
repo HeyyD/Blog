@@ -24,9 +24,11 @@ class CommentFeed extends Component {
       .then(res => res.json())
       .then(result => {
         for(let c of result) {
-          this.state.comments.push(<Comment key={c.id} userId={c.userId} content={c.content}/>);
+          console.log(c.date);
+          this.state.comments.push(<Comment key={c.id} userId={c.userId} date={c.date} content={c.content}/>);
         }
-      });
+      })
+      .catch(error => console.log(error));
 
     fetch(window.location.origin + '/users/current')
       .then(result => result.json())

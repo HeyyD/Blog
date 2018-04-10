@@ -29,6 +29,8 @@ public class Comment {
         this.content = content;
     }
 
+    public Date getDate() {return this.date;}
+
     public int getId() {
         return id;
     }

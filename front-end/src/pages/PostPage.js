@@ -26,7 +26,8 @@ class PostPage extends Component {
       .then(result => {
         if(result !== null)
           this.setContent(result)
-      });
+      })
+      .catch(error => console.log(error));
 
   }
 
