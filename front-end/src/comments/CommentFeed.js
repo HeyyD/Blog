@@ -44,7 +44,6 @@ class CommentFeed extends Component {
   }
 
   postComment(event) {
-    event.preventDefault();
 
     if(this.state.comment.length > 0){
       let url = window.location.origin + '/posts/comments';
