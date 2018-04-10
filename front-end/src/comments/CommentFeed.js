@@ -62,8 +62,10 @@ class CommentFeed extends Component {
       }).catch(error => console.log(error));
 
     }
-    else
+    else {
+      event.preventDefault();
       alert('You cannot leave an empty comment');
+    }
   }
 
   render() {
