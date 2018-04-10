@@ -35,6 +35,7 @@ class CommentFeed extends Component {
           currentUserId: res.id
         })
       })
+      .catch(error => console.log(error));
   }
 
   onHandleChange(event) {

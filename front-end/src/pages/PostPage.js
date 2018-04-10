@@ -23,7 +23,10 @@ class PostPage extends Component {
   componentWillMount(){
     fetch(window.location.href)
       .then(res => res.json())
-      .then(result => this.setContent(result));
+      .then(result => {
+        if(result !== null)
+          this.setContent(result)
+      });
 
   }
 
@@ -37,7 +40,8 @@ class PostPage extends Component {
           date: json.date,
           content: json.content
         })
-      });
+      })
+      .catch(error => console.log(error));
   }
 
   componentDidMount() {

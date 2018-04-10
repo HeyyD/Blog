@@ -1,6 +1,7 @@
 package com.undertakers.blog.post;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @TableGenerator(name = "comment", initialValue = 0)
@@ -14,10 +15,15 @@ public class Comment {
     private int userId;
     @Column(name = "content")
     private String content;
+    @Column(name = "date")
+    private Date date;
 
-    public Comment() {}
+    public Comment() {
+        this.date = new Date();
+    }
 
     public Comment(int postId, int userId, String content) {
+        this();
         this.postId = postId;
         this.userId = userId;
         this.content = content;
