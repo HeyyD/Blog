@@ -26,6 +26,10 @@ class CommentFeed extends Component {
   render() {
     return(
       <div className="Comment-feed">
+        <form className="Comment-form">
+          <textarea placeholder="Comment"></textarea>
+          <a href=''>Leave a comment</a>
+        </form>
         {this.state.comments}
       </div>
     );

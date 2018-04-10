@@ -11,3 +11,25 @@
   margin: 10px;
   color: #eee37b;
 }
+
+.Comment-form textarea {
+  height: 100px;
+  width: 400px;
+}
+
+.Comment-form a {
+  width: 100%;
+  height: 100%;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  font-family: Ubuntu;
+  font-size: 1.15em;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  transition: .25s ease-in-out;
+}
+
+.Comment-form a:hover {
+  color: #eee37b;
+}
