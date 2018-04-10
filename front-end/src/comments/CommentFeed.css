@@ -4,7 +4,7 @@
   padding: 10px;
 }
 
-.Comment-feed > div {
+.Comment-feed > div > div{
   background: #24232d;
   border-radius: 5px;
   padding: 10px;

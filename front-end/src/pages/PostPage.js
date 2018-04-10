@@ -21,7 +21,7 @@ class PostPage extends Component {
   }
 
   componentWillMount(){
-    fetch(window.location.origin + '/posts/' + this.props.id)
+    fetch(window.location.href)
       .then(res => res.json())
       .then(result => this.setContent(result));
 
@@ -72,7 +72,7 @@ class PostPage extends Component {
           <h3>{this.state.username}</h3>
           <h4>{this.state.date}</h4>
           <p>{this.state.content}</p>
-          <CommentFeed/>
+          <CommentFeed postId={this.props.id}/>
         </div>
       </div>
       );
