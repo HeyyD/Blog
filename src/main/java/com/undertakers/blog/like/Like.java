@@ -17,4 +17,14 @@ public class Like {
     private int userId;
     @Column(name = "date")
     private Date date;
+
+    public Like() {
+        this.date = new Date();
+    }
+
+    public Like(int postId, int userId) {
+        this();
+        this.postId = postId;
+        this.userId = userId;
+    }
 }
