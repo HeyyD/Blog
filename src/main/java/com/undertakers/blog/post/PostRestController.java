@@ -26,14 +26,17 @@ public class PostRestController {
     public BlogPost saveBlogPost(@RequestBody BlogPost entity) {
         return postRepository.save(entity);
     }
+
     @RequestMapping(value = "/posts/{id}", method = RequestMethod.DELETE)
     public void deleteBlogPost(@PathVariable int id) {
         postRepository.deleteById(id);
     }
+
     @RequestMapping(value = "/posts/{id}", method = RequestMethod.GET)
     public Optional<BlogPost> findOne(@PathVariable int id) {
         return postRepository.findById(id);
     }
+
     @RequestMapping(value = "/posts", method = RequestMethod.GET)
     public Iterable<BlogPost> findAll(){
         return postRepository.findAll();

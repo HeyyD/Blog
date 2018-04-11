@@ -7,5 +7,5 @@ import java.util.Date;
 @TableGenerator(name = "like", initialValue = 0)
 public class Like {
 
-    
+
 }

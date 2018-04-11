@@ -5,7 +5,7 @@ import './CreatePost.css'
 class CreatePost extends Component {
 
     constructor(props) {
-        super(props)
+        super(props);
         this.handleChange = this.handleChange.bind(this);
         this.post = this.post.bind(this);
         this.state = {
@@ -42,7 +42,7 @@ class CreatePost extends Component {
                 title: this.state.title,
                 content: this.state.content,
                 userId: this.state.userId
-            }
+            };
 
             fetch(url, {
                 body: JSON.stringify(data),
