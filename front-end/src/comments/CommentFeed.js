@@ -10,11 +10,14 @@ class CommentFeed extends Component {
     super(props);
     this.onHandleChange = this.onHandleChange.bind(this);
     this.postComment = this.postComment.bind(this);
+    this.findCurrentUser = this.findCurrentUser.bind(this);
+    this.findLoggedIn = this.findLoggedIn.bind(this);
 
     this.state = {
       comment: '',
       comments: [],
-      currentUserId: ''
+      currentUserId: '',
+      loggedIn: false
     }
   }
 
@@ -24,17 +27,29 @@ class CommentFeed extends Component {
       .then(res => res.json())
       .then(result => {
         for(let c of result) {
-          console.log(c.date);
           this.state.comments.push(<Comment key={c.id} userId={c.userId} date={c.date} content={c.content}/>);
         }
       })
+      .then(this.findCurrentUser)
       .catch(error => console.log(error));
+  }
 
+  findCurrentUser() {
     fetch(window.location.origin + '/users/current')
       .then(result => result.json())
-      .then(res => {
+      //.then(res => this.state = {currentUserId: res.id})
+      .then(res => this.findLoggedIn(res.id))
+      .catch(error => console.log(error));
+  }
+
+  findLoggedIn(id) {
+    fetch(window.location.origin + '/users/login')
+      .then(res => res.json())
+      .then(result => {
+        //this.state = {loggedIn: result};
         this.setState({
-          currentUserId: res.id
+          currentUserId: id,
+          loggedIn: result
         })
       })
       .catch(error => console.log(error));
@@ -72,17 +87,26 @@ class CommentFeed extends Component {
   }
 
   render() {
-    return(
-      <div className="Comment-feed">
-        <form className="Comment-form">
-          <textarea placeholder="Comment" onChange={this.onHandleChange}></textarea>
-          <a href='' onClick={this.postComment}>Leave a comment</a>
-        </form>
-        <div>
-          {this.state.comments}
+
+    if(this.state.loggedIn) {
+      return(
+        <div className="Comment-feed">
+          <form className="Comment-form">
+            <textarea placeholder="Comment" onChange={this.onHandleChange}/>
+            <a href='' onClick={this.postComment}>Leave a comment</a>
+          </form>
+          <div>
+            {this.state.comments}
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return(
+        <div className="Comment-feed">
+            {this.state.comments}
+        </div>
+        );
+    }
   }
 }
 export default CommentFeed;
