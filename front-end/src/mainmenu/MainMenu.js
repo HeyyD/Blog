@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './../index.css';
-import Login from "../profile/Login";
+import Login from "./Login";
 
 class MainMenu extends Component {
 
@@ -15,10 +15,11 @@ class MainMenu extends Component {
     }
 
     componentWillMount() {
-        let url = window.location.href;
+        let url = window.location.origin;
 
-        fetch(url + '/users/login').then(result => result.json())
-            .then(res => {
+        fetch(url + '/users/login')
+          .then(result => result.json())
+          .then(res => {
                 this.setState({loggedIn: res});
 
                 if(res === true) {
@@ -28,14 +29,12 @@ class MainMenu extends Component {
                         }).catch(error => console.log(error));
                 }
 
-            });
+            })
+          .catch(error => console.log(error));
     }
 
-    signOut(event){
-
-        event.preventDefault();
-
-        let url = window.location.href + '/users/logout'
+    signOut(){
+        let url = window.location.origin + '/users/logout'
 
         fetch(url).then(res => this.setState({loggedIn: false}));
     }
