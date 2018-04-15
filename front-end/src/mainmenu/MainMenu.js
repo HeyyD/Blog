@@ -33,10 +33,7 @@ class MainMenu extends Component {
           .catch(error => console.log(error));
     }
 
-    signOut(event){
-
-        event.preventDefault();
-
+    signOut(){
         let url = window.location.origin + '/users/logout'
 
         fetch(url).then(res => this.setState({loggedIn: false}));
