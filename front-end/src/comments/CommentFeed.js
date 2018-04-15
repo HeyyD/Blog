@@ -100,12 +100,16 @@ class CommentFeed extends Component {
           </div>
         </div>
       );
-    } else {
+    } else if(this.state.comments.length > 0){
       return(
         <div className="Comment-feed">
+          <div>
             {this.state.comments}
+          </div>
         </div>
         );
+    } else {
+      return(null);
     }
   }
 }
