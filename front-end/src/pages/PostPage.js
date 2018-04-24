@@ -70,14 +70,14 @@ class PostPage extends Component {
     return (
       <div>
         <header className="hero">
-          <MainMenu/>
+          <MainMenu userData={this.props.userData} setUserData={this.props.setUserData}/>
           <h1>{this.state.title}</h1>
         </header>
         <div className="content-wrapper">
           <h3>{this.state.username}</h3>
           <h4>{this.state.date}</h4>
           <p>{this.state.content}</p>
-          <CommentFeed postId={this.props.id}/>
+          <CommentFeed postId={this.props.id} userData={this.props.userData}/>
         </div>
       </div>
       );

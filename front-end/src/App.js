@@ -95,7 +95,7 @@ class App extends Component {
               }}/>
               <Route path="/users" component={CreateUser}/>
               <Route path="/posts/:id" render={(props) => {
-                return <PostPage id={props.match.params.id}/>
+                return <PostPage id={props.match.params.id} userData={this.state.userData} setUserData={this.setUserData}/>
               }}/>
               <Route path="/posts" render={() => {
                 return <CreatePost userData={this.state.userData}/>

@@ -16,8 +16,6 @@ class Login extends Component {
 
   login(event) {
 
-    event.preventDefault();
-
     let url = window.location.origin + '/users/login';
     let data = {username : this.state.username, password : this.state.password}
 
@@ -38,8 +36,6 @@ class Login extends Component {
           userId: result.id,
           username: result.username
         };
-
-        console.log(newState);
 
         this.props.signIn(newState);
       });
