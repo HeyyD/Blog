@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import './index.css';
 import $ from 'jquery';
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import PostFeed from './post-feed/PostFeed';
 import MainMenu from './mainmenu/MainMenu';
+import CreateUser from "./pages/CreateUser";
+import CreatePost from "./pages/CreatePost";
+import PostPage from './pages/PostPage';
 
 class App extends Component {
 
@@ -72,17 +76,33 @@ class App extends Component {
     }
 
     render() {
-        return (
-          <div className="App">
-            <header className="hero">
-                <MainMenu userData={this.state.userData} setUserData={this.setUserData}/>
-              <h1>Blog Site</h1>
-            </header>
-            <div className="content-wrapper">
-                <PostFeed/>
-            </div>
+      return (
+        <Router>
+          <div>
+            <Switch>
+              <Route exact path="/" render={() => {
+                return(
+                <div className="App">
+                  <header className="hero">
+                    <MainMenu userData={this.state.userData} setUserData={this.setUserData}/>
+                    <h1>Blog Site</h1>
+                  </header>
+                  <div className="content-wrapper">
+                    <PostFeed/>
+                  </div>
+                </div>
+                )
+              }}/>
+              <Route path="/users" component={CreateUser}/>
+              <Route path="/posts/:id" render={(props) => {
+                return <PostPage id={props.match.params.id}/>
+              }}/>
+              <Route path="/posts" component={CreatePost}/>
+            </Switch>
+
           </div>
-        );
+        </Router>
+      );
     }
 }
 export default App;

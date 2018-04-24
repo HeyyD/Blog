@@ -16,7 +16,7 @@ class MainMenu extends Component {
         userId: '',
         username: ''
       }
-      
+
       this.props.setUserData(data);
     }
 
