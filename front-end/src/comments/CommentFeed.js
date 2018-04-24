@@ -10,14 +10,10 @@ class CommentFeed extends Component {
     super(props);
     this.onHandleChange = this.onHandleChange.bind(this);
     this.postComment = this.postComment.bind(this);
-    this.findCurrentUser = this.findCurrentUser.bind(this);
-    this.findLoggedIn = this.findLoggedIn.bind(this);
 
     this.state = {
       comment: '',
-      comments: [],
-      currentUserId: '',
-      loggedIn: false
+      comments: []
     }
   }
 
@@ -29,28 +25,6 @@ class CommentFeed extends Component {
         for(let c of result) {
           this.state.comments.push(<Comment key={c.id} userId={c.userId} date={c.date} content={c.content}/>);
         }
-      })
-      .then(this.findCurrentUser)
-      .catch(error => console.log(error));
-  }
-
-  findCurrentUser() {
-    fetch(window.location.origin + '/users/current')
-      .then(result => result.json())
-      //.then(res => this.state = {currentUserId: res.id})
-      .then(res => this.findLoggedIn(res.id))
-      .catch(error => console.log(error));
-  }
-
-  findLoggedIn(id) {
-    fetch(window.location.origin + '/users/login')
-      .then(res => res.json())
-      .then(result => {
-        //this.state = {loggedIn: result};
-        this.setState({
-          currentUserId: id,
-          loggedIn: result
-        })
       })
       .catch(error => console.log(error));
   }
@@ -67,7 +41,7 @@ class CommentFeed extends Component {
       let url = window.location.origin + '/posts/comments';
       let data = {
         postId: this.props.postId,
-        userId: this.state.currentUserId,
+        userId: this.props.userData.userId,
         content: this.state.comment
       };
 
@@ -88,7 +62,7 @@ class CommentFeed extends Component {
 
   render() {
 
-    if(this.state.loggedIn) {
+    if(this.props.userData.loggedIn) {
       return(
         <div className="Comment-feed">
           <form className="Comment-form">

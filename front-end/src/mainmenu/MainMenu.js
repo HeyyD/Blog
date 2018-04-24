@@ -8,60 +8,32 @@ class MainMenu extends Component {
         super(props);
         this.signOut = this.signOut.bind(this);
         this.signIn = this.signIn.bind(this);
-        this.state = {
-            username: '',
-            loggedIn: false
-        }
-    }
-
-    componentWillMount() {
-        let url = window.location.origin;
-
-        fetch(url + '/users/login')
-          .then(result => result.json())
-          .then(res => {
-                this.setState({loggedIn: res});
-
-                if(res === true) {
-                    fetch(url + '/users/current').then(res => res.json())
-                        .then(result => {
-                            this.setState({username: result.username});
-                        }).catch(error => console.log(error));
-                }
-
-            })
-          .catch(error => console.log(error));
     }
 
     signOut(){
-        let url = window.location.origin + '/users/logout'
+      let data = {
+        loggedIn: false,
+        userId: '',
+        username: ''
+      }
 
-        fetch(url).then(res => this.setState({loggedIn: false}));
+      this.props.setUserData(data);
     }
 
-    signIn(url, init) {
-      fetch(url, init).then(res => res.json())
-                      .then(result => {
-                          if(result === true) {
-                            fetch(window.location.href + '/users/current').then(res => res.json())
-                              .then(result => {
-                                this.setState({
-                                  username: result.username,
-                                  loggedIn: result
-                                });
-                              });
-                          }
-                      });
+    signIn(result) {
+      if(result !== null) {
+          this.props.setUserData(result);
+        }
     }
 
     render() {
 
-        if(this.state.loggedIn) {
+        if(this.props.userData.loggedIn) {
             return(
                 <nav>
                     <div className="nav-bg">
                         <ul>
-                            <li><h3>{this.state.username}</h3></li>
+                            <li><h3>{this.props.userData.username}</h3></li>
                             <li><a key="1" href="/posts">Post</a></li>
                             <li><a key="2" href="" onClick={this.signOut}>Logout</a></li>
                         </ul>

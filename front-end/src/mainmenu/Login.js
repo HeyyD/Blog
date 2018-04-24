@@ -15,6 +15,7 @@ class Login extends Component {
   }
 
   login() {
+
     let url = window.location.origin + '/users/login';
     let data = {username : this.state.username, password : this.state.password}
 
@@ -24,9 +25,22 @@ class Login extends Component {
       headers: new Headers({
         'Content-type': 'application/json'
       })
-    }
+    };
 
-    this.props.signIn(url, init);
+    fetch(url, init)
+      .then(res => res.json())
+      .then(result => {
+          let newState = {
+            loggedIn: true,
+            userId: result.id,
+            username: result.username
+          };
+
+          this.props.signIn(newState);
+      })
+      .catch(error => {
+        alert('No such username or incorrect password');
+      });
   }
 
   render() {
