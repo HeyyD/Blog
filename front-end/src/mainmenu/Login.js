@@ -24,9 +24,20 @@ class Login extends Component {
       headers: new Headers({
         'Content-type': 'application/json'
       })
-    }
+    };
 
-    this.props.signIn(url, init);
+    fetch(url, init)
+      .then(res => res.json())
+      .then(result => {
+
+        let newState = {
+          loggedIn: true,
+          userId: result.id,
+          username: result.username
+        };
+
+        this.props.signIn(newState);
+      });
   }
 
   render() {

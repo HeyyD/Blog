@@ -9,6 +9,45 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.handleScroll = this.handleScroll.bind(this);
+        this.setUserData = this.setUserData.bind(this);
+
+        this.state = {
+          userData: {
+            loggedIn: false,
+            userId: '',
+            username: ''
+          }
+        };
+    }
+
+    componentWillMount() {
+
+      let storage = window.localStorage;
+
+      this.setState({
+        userData: {
+          loggedIn: storage.getItem('loggedIn') === ('true'),
+          userId: storage.getItem('userId'),
+          username: storage.getItem('username')
+        }
+      });
+    }
+
+    setUserData(result) {
+
+      let storage = window.localStorage;
+
+      storage.setItem('loggedIn', result.loggedIn.toString());
+      storage.setItem('userId', result.id);
+      storage.setItem('username', result.username);
+
+      this.setState({
+        userData: {
+          loggedIn: result.loggedIn,
+          userId: result.userId,
+          username: result.username
+        }
+      });
     }
 
     componentDidMount() {
@@ -36,7 +75,7 @@ class App extends Component {
         return (
           <div className="App">
             <header className="hero">
-                <MainMenu/>
+                <MainMenu userData={this.state.userData} setUserData={this.setUserData}/>
               <h1>Blog Site</h1>
             </header>
             <div className="content-wrapper">
