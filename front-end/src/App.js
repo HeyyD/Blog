@@ -42,7 +42,7 @@ class App extends Component {
       let storage = window.localStorage;
 
       storage.setItem('loggedIn', result.loggedIn.toString());
-      storage.setItem('userId', result.id);
+      storage.setItem('userId', result.userId);
       storage.setItem('username', result.username);
 
       this.setState({
@@ -97,7 +97,9 @@ class App extends Component {
               <Route path="/posts/:id" render={(props) => {
                 return <PostPage id={props.match.params.id}/>
               }}/>
-              <Route path="/posts" component={CreatePost}/>
+              <Route path="/posts" render={() => {
+                return <CreatePost userData={this.state.userData}/>
+              }}/>
             </Switch>
 
           </div>
