@@ -14,7 +14,7 @@ class Login extends Component {
     this.setState({[event.target.name]: event.target.value});
   }
 
-  login(event) {
+  login() {
 
     let url = window.location.origin + '/users/login';
     let data = {username : this.state.username, password : this.state.password}
@@ -30,14 +30,16 @@ class Login extends Component {
     fetch(url, init)
       .then(res => res.json())
       .then(result => {
+          let newState = {
+            loggedIn: true,
+            userId: result.id,
+            username: result.username
+          };
 
-        let newState = {
-          loggedIn: true,
-          userId: result.id,
-          username: result.username
-        };
-
-        this.props.signIn(newState);
+          this.props.signIn(newState);
+      })
+      .catch(error => {
+        alert('No such username or incorrect password');
       });
   }
 
