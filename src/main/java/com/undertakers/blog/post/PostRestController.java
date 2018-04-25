@@ -45,6 +45,25 @@ public class PostRestController {
         return postRepository.findAll();
     }
 
+    //Liking
+    @RequestMapping(value = "/{postId}", method = RequestMethod.POST)
+    public int updateLikes(@PathVariable int postId, @RequestBody int userId) {
+
+        int likeNumber = 0;
+
+        if (findOne(postId).isPresent()) {
+            BlogPost post = findOne(postId).get();
+            post.getLikeContainer().addLike(userId);
+            post.setLikes(post.getLikeContainer().toString());
+
+            likeNumber = post.getLikeContainer().getIdList().size();
+
+            postRepository.save(post);
+        }
+
+        return likeNumber;
+    }
+
     //Commenting
     @RequestMapping(value = "/comments", method = RequestMethod.POST)
     public Comment saveComment(@RequestBody Comment entity) {
