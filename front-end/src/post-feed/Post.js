@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Post.css'
+import LikeButton from "../buttons/LikeButton";
 
 class Post extends Component {
 
@@ -23,6 +24,7 @@ class Post extends Component {
         <h2>{this.props.title}</h2>
         <h5>{this.state.username + ' | ' + this.props.date}</h5>
         <p>{this.props.content}</p>
+          <LikeButton id={this.props.id}/>
       </div>
     );
   }
