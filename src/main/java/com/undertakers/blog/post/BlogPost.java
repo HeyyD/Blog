@@ -39,6 +39,7 @@ public class BlogPost {
         this.title = title;
         this.content = content;
         this.userId = userId;
+        likeContainer = new LikeContainer();
     }
 
     public int getId() {
