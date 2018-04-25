@@ -16,9 +16,11 @@ public class LikeContainer {
         idList = toList(idString);
     }
 
-    public boolean addLike(int userId) {
-        if(!idList.contains(userId)) {
+    public boolean toggleLike(int userId) {
+        if (!idList.contains(userId)) {
             idList.add(userId);
+        } else if (idList.contains(userId)) {
+            idList.remove(userId);
         }
 
         return !idList.contains(userId);

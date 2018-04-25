@@ -53,7 +53,7 @@ public class PostRestController {
 
         if (findOne(postId).isPresent()) {
             BlogPost post = findOne(postId).get();
-            post.getLikeContainer().addLike(userId);
+            post.getLikeContainer().toggleLike(userId);
             post.setLikes(post.getLikeContainer().toString());
 
             likeNumber = post.getLikeContainer().getIdList().size();
