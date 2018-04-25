@@ -9,6 +9,7 @@ import java.util.Date;
 @TableGenerator(name = "blog_post", initialValue = 0)
 public class BlogPost {
 
+    @Transient
     private LikeContainer likeContainer;
 
 
