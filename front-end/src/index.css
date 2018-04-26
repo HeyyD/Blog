@@ -114,6 +114,11 @@ h1 {
   color: rgb(220, 120, 0);
 }
 
+.content-wrapper h3, h4 {
+  font-family: Ubuntu;
+  text-indent: 1.5em;
+}
+
 .content-wrapper p {
   font-family: "Open Sans";
   text-indent: 1.5em;

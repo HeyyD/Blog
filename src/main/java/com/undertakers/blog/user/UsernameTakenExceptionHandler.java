@@ -6,8 +6,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+/**
+ * Class that tells how to handle UsernameTakenExceptions.
+ */
 @ControllerAdvice
 public class UsernameTakenExceptionHandler {
+
+    /**
+     * Method that specifies how MemberNotFoundExceptions should be handled.
+     *
+     * @param ex Exception that was thrown.
+     * @return Response to a http request.
+     */
     @ExceptionHandler(UsernameTakenException.class)
     public ResponseEntity<ErrorInfo> handleConflict(UsernameTakenException ex) {
         ErrorInfo e;
