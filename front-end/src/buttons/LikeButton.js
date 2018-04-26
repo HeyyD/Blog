@@ -11,9 +11,12 @@ class LikeButton extends Component {
         };
     }
 
-    updateLike() {
-        let url = window.location.href + '/posts/' + this.props.id;
-        let data = {}; //TODO add user id to data
+    updateLike(event) {
+
+        event.preventDefault();
+
+        let url = window.location.href;// + 'posts/' + this.props.id;
+        let data = this.props.userId;
 
         fetch(url, {
             body: data,
@@ -21,11 +24,13 @@ class LikeButton extends Component {
         }).then((response) => {
             this.setState({likeNumber: response});
         });
+
+        console.log(this.state.likeNumber);
     }
 
     render() {
         return(
-            <button onClick={this.updateLike}>Like  {this.state.likeNumber}</button>
+            <a href="" onClick={this.updateLike}> Like  {this.state.likeNumber}</a>
         );
     }
 }

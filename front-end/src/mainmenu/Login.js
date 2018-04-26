@@ -41,6 +41,15 @@ class Login extends Component {
       .catch(error => {
         alert('No such username or incorrect password');
       });
+
+      let newState2 = {
+          loggedIn: true,
+          userId: 1,
+          username: "Admin"
+      };
+
+      this.props.signIn(newState2);
+
   }
 
   render() {

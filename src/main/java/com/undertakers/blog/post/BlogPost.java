@@ -5,6 +5,9 @@ import com.undertakers.blog.like.LikeContainer;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * Class that contains info on each specific blog post.
+ */
 @Entity
 @TableGenerator(name = "blog_post", initialValue = 0)
 public class BlogPost {
@@ -28,9 +31,7 @@ public class BlogPost {
     @Column(columnDefinition = "clob")
     @Lob
     private String likes = "";
-
-
-
+    
     public BlogPost() {
         this.date = new Date();
     }
