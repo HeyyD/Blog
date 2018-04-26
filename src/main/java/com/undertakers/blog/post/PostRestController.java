@@ -17,15 +17,13 @@ import java.util.Optional;
 public class PostRestController {
 
     /**
-     * Repository that manages database saving and retrieval
-     * for blog posts.
+     * Repository that manages database saving and retrieval of blog posts.
      */
     @Autowired
     private PostRepository postRepository;
 
     /**
-     * Repository that manages database saving and retrieval
-     * for comments.
+     * Repository that manages database saving and retrieval of comments.
      */
     @Autowired
     private CommentRepository commentRepository;
